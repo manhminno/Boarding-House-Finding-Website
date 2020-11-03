@@ -1,5 +1,3 @@
-
-
 <!-- Phần header -->
 	<div class="container" id="header" style="">
 		<div class="pull-left">
