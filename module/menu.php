@@ -31,7 +31,7 @@
 					            <?php 
 					            	if(isset($_SESSION['user_name'])) { ?>
 					            		
-					            		location.assign("https://trotothn.000webhostapp.com/DangTinNhanh.php");
+					            		location.assign("http://localhost/Project-LTW/DangTinNhanh.php");
 					          <?php } else { ?>
 					          			$("#login_background").css("display", "block");
 										$("#logIn_area").css("display", "block");
