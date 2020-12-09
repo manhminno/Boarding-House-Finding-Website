@@ -55,13 +55,11 @@
 	<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12" style="padding: 0px;">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-5">
-					<img src="images/avatar.jpg" class="img-thumbnail">
-				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-7" style="font-size: 23px; margin: 10px 0px; color: #9a9999;">
+					<h1 style="color:black">Các bài đã đăng</h1>
 					<?php
 						if(isset($_SESSION['user_name'])) {
-							echo $_SESSION['user_name'];
+							echo '<span style="color:black;text-align:center;">Tài khoản: '.$_SESSION['user_name'].'</span>';
 						}
 					?>
 				</div>

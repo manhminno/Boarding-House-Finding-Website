@@ -94,9 +94,27 @@
 							<span style="color: green;">Sđt liên hệ: </span>
 							<span><?php echo $row['Sdt']; ?></span>
 						</b>
-						<b class="col-xs-12 simple_room_info_line">
+						<b class="col-sm-6 col-xs-12 simple_room_info_line">
 							<span style="color: green;">Giá: </span>
 							<span><?php echo $row['GiaChoThue']; ?> đồng/tháng</span>
+						</b>
+						<b class="col-sm-6 col-xs-12 simple_room_info_line">
+							<!-- <button class="btn btn-default btn-sm pull-right" type="button">Xóa</button>
+							<button class="btn btn-default btn-sm pull-right" type="button">Sửa</button> -->
+							<!-- <script type="text/javascript" src="scripts/JavaScript.js"></script>  -->
+							<form  method='POST' >
+								<input type="submit" name="button1" id="btn" value="Xóa">
+							</form>
+							<a href="DangTinNhanh.php?id=1" onclick="return  confirm('do you want to delete Y/N')">Edit </a>
+							<?php
+								if(isset($_POST['button1'])){
+									// function anyfunction(){
+									echo "added";
+										// Your funtion code
+									// }
+
+								}
+							?>
 						</b>
 						<p class="col-xs-12 text-right simple_room_info_line" style="color: gray">
 							<?php 
