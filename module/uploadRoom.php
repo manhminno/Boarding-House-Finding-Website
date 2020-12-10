@@ -1,11 +1,29 @@
+<style>
+.button {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button:hover {background-color: red;}
+</style>
 <?php 
-	date_default_timezone_set('Asia/Ho_Chi_Minh');
-	$name = $_SESSION['user_name'];
 	//kết nối đến CSDL
 	include('./controller/connectToDatabase.php');
-
-	//Câu lệnh sql lấy tất cả các phòng thỏa mãn điều kiện của action
-	$sql_select_all_action = 'SELECT gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro AND gia_phong_tro.user_name = "' .$name. '"';
+	date_default_timezone_set('Asia/Ho_Chi_Minh');
+	$name = $_SESSION['user_name'];
+	if($name == "admin"){
+		$sql_select_all_action = " SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro ";
+	}
+	else{
+		$sql_select_all_action = 'SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro AND gia_phong_tro.user_name = "' .$name. '"';
+	}
 
 	if(!isset($_GET['sorting_time']) && !isset($_GET['sorting_price'])) {
 		$sql_select_all_action = $sql_select_all_action. 'ORDER BY gia_phong_tro.ThoiGianDang DESC';
@@ -49,9 +67,11 @@
 	$sql_select_each_page = $sql_select_all_action. ' LIMIT ' .$this_page_first_result. ',' .$result_per_page;
 	$result_each_page = mysqli_query($conn, $sql_select_each_page);
 
+
+
 	//Hiển thị các phòng tương ứng
 	while($row = mysqli_fetch_assoc($result_each_page)) {
-		?>
+?>
 		<div class="col-xs-12">
 			<div class="row">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
@@ -64,7 +84,6 @@
 									echo '<img src="' .$row_img['DuongDan']. '" style="width: 100%; height: 180px;">';
 								}
 							}
-							//nếu phòng không có ảnh thì dùng logo (thêm vào lúc 17h20 ngày 01/05/2019)
 							else echo '<img src="images/icon-acount.png" style="width: 100%; height: 100%;">';
 						?>
 					</a>
@@ -99,24 +118,13 @@
 							<span><?php echo $row['GiaChoThue']; ?> đồng/tháng</span>
 						</b>
 						<b class="col-sm-6 col-xs-12 simple_room_info_line">
-							<!-- <button class="btn btn-default btn-sm pull-right" type="button">Xóa</button>
-							<button class="btn btn-default btn-sm pull-right" type="button">Sửa</button> -->
-							<!-- <script type="text/javascript" src="scripts/JavaScript.js"></script>  -->
-							<form  method='POST' >
-								<input type="submit" name="button1" id="btn" value="Xóa">
-							</form>
-							<a href="DangTinNhanh.php?id=1" onclick="return  confirm('do you want to delete Y/N')">Edit </a>
-							<?php
-								if(isset($_POST['button1'])){
-									// function anyfunction(){
-									echo "added";
-										// Your funtion code
-									// }
-
-								}
-							?>
+							<span style="color: green;">Tài khoản đăng: </span>
+							<span><?php echo $row['user_name']; ?></span>
 						</b>
-						<p class="col-xs-12 text-right simple_room_info_line" style="color: gray">
+						<b class="col-lg-6 col-xs-12 simple_room_info_line">
+							<a href="deleteRoom.php?id=<?php echo $row['IDPhongTro']; ?>" onclick="return  confirm('Bạn chắc chắn muốn xóa bài đăng này chứ?')"><button class="button">Xóa bài</button></a>
+						</b>
+						<p class="col-lg-12 col-xs-12 text-right simple_room_info_line" style="color: gray">
 							<?php 
 								$ThoiGian = $row['ThoiGian'];
 								$now =  date('Y-m-d H:i:s');
