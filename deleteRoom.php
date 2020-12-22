@@ -15,6 +15,7 @@
 		}
 	?>
 	<title id="title_room_page">Trang cá nhân</title>
+	<link rel="icon" type="image/png" href="images/favicon/favicon.png"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <script type="text/javascript" src="vendor/bootstrap.js"></script>
