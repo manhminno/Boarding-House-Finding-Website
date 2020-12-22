@@ -1,18 +1,3 @@
-<style>
-.button {
-  background-color: green;
-  border: none;
-  color: white;
-  padding: 10px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.button:hover {background-color: #e6ac00;}
-</style>
 <?php
     session_start();
 ?>
@@ -62,7 +47,8 @@
 	<div class="container">
 		<p id="path">
 			<a href="index.php" class="link">Trang chủ / </a>
-			<a href="TrangCaNhan.php" class="link">Trang cá nhân</a>
+			<a href="TrangCaNhan.php" class="link">Trang cá nhân / </a>
+			<a href="showRoom.php" class="link">Bài đăng</a>
 		</p>
 	</div>
 
@@ -74,25 +60,27 @@
 					<?php
 						$name = $_SESSION['user_name'];
 						if($name == "admin"){
-							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí trang web:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
+							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí bài đăng trên web:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
 							echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Bạn đang đăng nhập với tư cách là quản trị viên</span>';
 						}
 						else{
-							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí tài khoản<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
+							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Các bài bạn đã đăng:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
 							echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Tài khoản: '.$name.'</span>';
 						}
 					?>
 				</div>
 			</div>
-			<div class="col-lg-12">
-				<a href="showRoom.php"><button class="button">Bài đăng</button></button></a>
-				<?php
-				if($name == "admin"){
-				?>
-					<a href="showAccount.php"><button class="button">Các tài khoản</button></button></a>
-				<?php
-				}
-				?>
+			<!-- Phần hiển thị các tin bài -->
+			<div class="col-xs-12" id="room_main_content">
+				<div class="row" id="new_rooms">
+					
+					<!-- Hiển thị các phòng trọ -->
+					<?php
+						include('module/uploadRoom.php');
+					?>
+					
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
