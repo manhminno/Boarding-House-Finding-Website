@@ -19,10 +19,10 @@
 	date_default_timezone_set('Asia/Ho_Chi_Minh');
 	$name = $_SESSION['user_name'];
 	if($name == "admin"){
-		$sql_select_all_action = " SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro ";
+		$sql_select_all_action = " SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang, gia_phong_tro.KieuPhong AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt, KieuPhong FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro ";
 	}
 	else{
-		$sql_select_all_action = 'SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro AND gia_phong_tro.user_name = "' .$name. '"';
+		$sql_select_all_action = 'SELECT gia_phong_tro.user_name, gia_phong_tro.IDPhongTro, gia_phong_tro.KieuVeSinh, gia_phong_tro.TieuDe, gia_phong_tro.DienTich, gia_phong_tro.GiaChoThue, gia_phong_tro.ThoiGianDang, gia_phong_tro.KieuPhong AS ThoiGian, dia_chi_phong_tro.DiaChi, dia_chi_phong_tro.TenChuTro, dia_chi_phong_tro.Sdt, KieuPhong FROM gia_phong_tro, dia_chi_phong_tro WHERE gia_phong_tro.IDPhongTro=dia_chi_phong_tro.IDPhongTro AND gia_phong_tro.user_name = "' .$name. '"';
 	}
 
 	if(!isset($_GET['sorting_time']) && !isset($_GET['sorting_price'])) {
@@ -75,7 +75,7 @@
 		<div class="col-xs-12">
 			<div class="row">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-6">
-					<a href="ChiTietCanPhong.php?id=<?php echo $row['IDPhongTro']; ?>" class="thumbnail">
+					<a href="ChiTietCanPhong.php?id=<?php echo $row['IDPhongTro']; ?>&type=<?php echo $row['KieuPhong']; ?>" class="thumbnail">
 						<?php
 							$sql_select_image = 'SELECT DuongDan FROM hinh_anh_phong_tro WHERE IDPhongTro=' .$row['IDPhongTro']. ' LIMIT 1';
 							$result_img = mysqli_query($conn, $sql_select_image);
@@ -90,7 +90,7 @@
 				</div>
 				<div class="col-lg-9col-md-8 col-sm-8 col-xs-12">
 					<div class="row">
-						<a href="ChiTietCanPhong.php?id=<?php echo $row['IDPhongTro']; ?>" class="col-xs-12 link simple_room_info_line">
+						<a href="ChiTietCanPhong.php?id=<?php echo $row['IDPhongTro']; ?>&type=<?php echo $row['KieuPhong']; ?>" class="col-xs-12 link simple_room_info_line">
 							<h3 style="margin-top: 10px;"><?php echo $row['TieuDe']; ?></h3>
 						</a>
 						<b class="col-xs-12 simple_room_info_line"> 

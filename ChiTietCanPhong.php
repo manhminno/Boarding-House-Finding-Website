@@ -8,7 +8,7 @@
 	<title id="title_room_page"><?php
 		include('controller/connectToDatabase.php');
 		$room_id = $_GET['id'];
-		$sql_select_room_title = 'SELECT TieuDe FROM gia_phong_tro WHERE IDPhongTro=' .$room_id;
+		$sql_select_room_title = 'SELECT TieuDe FROM gia_phong_tro WHERE IDPhongTro= "' .$room_id. '"';
 		$room_type = $_GET['type'];
 		if($result_title = mysqli_query($conn, $sql_select_room_title)) {
 			while ($row_title = mysqli_fetch_assoc($result_title)) {
