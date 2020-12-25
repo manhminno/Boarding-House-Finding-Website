@@ -3,22 +3,22 @@
 ?>
 
 <!-- Include file xử lý thêm dữ liệu vào csdl khi đăng tin -->
-<?php 
+<?php
 	include('controller/uploadNewRoom.php');
 ?>
 
 <!-- Include file xử lý tác vụ đăng nhập -->
-<?php 
+<?php
 	include('controller/logIn.php');
 ?>
 
 <!-- Include file xử lý tác vụ đăng ký -->
-<?php 
+<?php
 	include('controller/signIn.php');
 ?>
 
 <!-- include file xử lý tác vụ đăng xuất -->
-<?php 
+<?php
 	include('controller/logOut.php');
 ?>
 
@@ -35,11 +35,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/CSS.css">
-	
+
 </head>
 <body>
 	<!-- Khung đăng ký, đăng nhập -->
-	<?php 
+	<?php
 		include('module/LogInAndSignIn.php');
 	?>
 
@@ -90,11 +90,27 @@
 	?>
 
 	<!-- Nhúng file javascript -->
-	<script type="text/javascript" src="scripts/JavaScript.js"></script> 
+	<script type="text/javascript" src="scripts/JavaScript.js"></script>
 
 	<?php
 		include('controller/displayLogInBackground.php');
 	?>
 
 </body>
+<footer>
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+    function myMap() {
+        var mapProp = {
+            center:new google.maps.LatLng(51.508742,-0.120850),
+            zoom:5,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUzlN5V2gwWIFgTeuHyhGOZ5axWgFZi-0&callback=myMap"></script>
+
+</footer>
 </html>
