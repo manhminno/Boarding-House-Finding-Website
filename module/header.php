@@ -1,5 +1,3 @@
-
-
 <!-- Phần header -->
 	<div class="container" id="header" style="">
 		<div class="pull-left">
@@ -11,8 +9,8 @@
 
 			if(isset($_SESSION['user_name'])) {
 					echo '<div class="pull-right">
-						<img src="images/icon-acount.png" id="icon_acount" alt="">
-						<div style="padding-top: 5px; padding-right: 0px; float: right;">
+						<img src="images/logined.png" id="icon_account" alt="">
+						<div style="padding-top: 15px; padding-right: 0px; float: right;">
 						<b><a class="my_acount_button link" href="TrangCaNhan.php">' .$_SESSION['user_name']. '</a></b>
 						<br>
 						<a class="my_acount_button link"  id="logOut_button" href="index.php?action=logOut">Đăng xuất</a>
@@ -20,7 +18,7 @@
 					</div>';
 			} else {
 				echo '<div class="pull-right">
-						<img src="images/icon-acount.png" id="icon_acount" alt="">
+						<img src="images/icon-account.png" id="icon_acount" alt="">
 						<div style="padding-top: 5px; padding-right: 0px; float: right;">
 						<b class="logIn_signIn_button" id="logIn_button">Đăng nhập</b>
 						<br>

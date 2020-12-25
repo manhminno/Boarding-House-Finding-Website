@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 25, 2019 at 05:25 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 03, 2020 lúc 05:26 PM
+-- Phiên bản máy phục vụ: 10.4.14-MariaDB
+-- Phiên bản PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `demobtl`
+-- Cơ sở dữ liệu: `nha_tro_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bai_dang`
+-- Cấu trúc bảng cho bảng `bai_dang`
 --
 
 CREATE TABLE `bai_dang` (
@@ -33,11 +32,11 @@ CREATE TABLE `bai_dang` (
   `user_name` varchar(20) CHARACTER SET latin1 NOT NULL DEFAULT 'admin',
   `TieuDe` tinytext COLLATE utf8_unicode_ci NOT NULL,
   `NoiDung` text COLLATE utf8_unicode_ci NOT NULL,
-  `ThoiGianDang` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `ThoiGianDang` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `bai_dang`
+-- Đang đổ dữ liệu cho bảng `bai_dang`
 --
 
 INSERT INTO `bai_dang` (`ID`, `user_name`, `TieuDe`, `NoiDung`, `ThoiGianDang`) VALUES
@@ -54,7 +53,7 @@ INSERT INTO `bai_dang` (`ID`, `user_name`, `TieuDe`, `NoiDung`, `ThoiGianDang`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dia_chi_phong_tro`
+-- Cấu trúc bảng cho bảng `dia_chi_phong_tro`
 --
 
 CREATE TABLE `dia_chi_phong_tro` (
@@ -67,7 +66,7 @@ CREATE TABLE `dia_chi_phong_tro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dia_chi_phong_tro`
+-- Đang đổ dữ liệu cho bảng `dia_chi_phong_tro`
 --
 
 INSERT INTO `dia_chi_phong_tro` (`IDPhongTro`, `DiaChi`, `XaPhuong`, `QuanHuyen`, `TenChuTro`, `Sdt`) VALUES
@@ -102,12 +101,13 @@ INSERT INTO `dia_chi_phong_tro` (`IDPhongTro`, `DiaChi`, `XaPhuong`, `QuanHuyen`
 (52, 'Số 10, Ngách 91, Ngõ 68, Cầu Giấy, Cầu Giấy, Hà Nội', 'Phường Dịch Vọng', 'Quận Cầu Giấy', '', '0438339363'),
 (54, 'Số 12, Ngõ 397, Phạm Văn Đồng, Cầu Giấy, ', 'Phường Dịch Vọng', 'Quận Cầu Giấy', 'Chú Quân', '0969834263'),
 (55, 'số 4, ngách 24/133, ngõ 133 Xuân Thủy, Cầu Giấy', 'Phường Dịch Vọng Hậu', 'Quận Cầu Giấy', 'Cô Hồng', '0336842913'),
-(56, 'số 11A, Ngách 24, Ngõ 165 Cầu Giấy', 'Phường Dịch Vọng', 'Quận Cầu Giấy', '', '0969633422');
+(56, 'số 11A, Ngách 24, Ngõ 165 Cầu Giấy', 'Phường Dịch Vọng', 'Quận Cầu Giấy', '', '0969633422'),
+(58, 'Nhà số 32, ngõ 36, Lê Thanh Nghị, Hai Bà Trưng, Hà Nội', 'Phường Bách Khoa', 'Quận Hai Bà Trưng', 'Anh Tú', '0927363132');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gia_phong_tro`
+-- Cấu trúc bảng cho bảng `gia_phong_tro`
 --
 
 CREATE TABLE `gia_phong_tro` (
@@ -121,13 +121,13 @@ CREATE TABLE `gia_phong_tro` (
   `GiaDien` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `GiaNuoc` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `DoiTuong` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Chưa xác định',
-  `TienIch` tinytext COLLATE utf8_unicode_ci,
-  `MoTa` text COLLATE utf8_unicode_ci,
-  `ThoiGianDang` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `TienIch` tinytext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MoTa` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ThoiGianDang` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `gia_phong_tro`
+-- Đang đổ dữ liệu cho bảng `gia_phong_tro`
 --
 
 INSERT INTO `gia_phong_tro` (`IDPhongTro`, `user_name`, `TieuDe`, `KieuPhong`, `KieuVeSinh`, `GiaChoThue`, `DienTich`, `GiaDien`, `GiaNuoc`, `DoiTuong`, `TienIch`, `MoTa`, `ThoiGianDang`) VALUES
@@ -162,12 +162,13 @@ INSERT INTO `gia_phong_tro` (`IDPhongTro`, `user_name`, `TieuDe`, `KieuPhong`, `
 (52, 'chinh', 'Tìm nam ở ghép tại phòng trọ số 10, Ngách 91, Ngõ 68 Đường Cầu Giấy', 'Ở ghép', 'Không khép kín', 1400000, 16, '4000/số', '70000/người', 'Sinh viên', '', 'khép kín riêng chủ 1tr4 - 1tr7. số 10 ngách 91 ngõ 68 đường Cầu Giấy _(điện 4k, nước70k, net 50k, chỗ để xe hơi chật). Inbox hoặc liên hệ sdt Bác chủ nhà 0438339363', '2019-04-23 02:50:42'),
 (54, 'thangnm', 'mình muốn tim một bạn nam vào ở ghép ở Số 12, Ngõ 397, Phạm Văn Đồng, Cầu Giấy, ', 'Ở ghép', 'Khép kín', 2600000, 22, 'Nhà nước quy định', 'Nhà nước quy định', 'Sinh viên', 'Chỗ để xe , Sân phơi , Internet , Điều hòa , Bình nóng lạnh', 'Phòng đã có 2 người, đồ đạc đầy đủ, yêu cầu trung thực, sạch sẽ. Ưu tiên sinh viên ĐHQGHN', '2019-04-23 03:31:46'),
 (55, 'diepdx', 'Cho thuê phòng trọ tại số 4, ngách 24/133, ngõ 133 Xuân Thủy, Cầu Giấy', 'Phòng trọ', 'Khép kín', 2500000, 25, '4000/số', '30000/khối', 'Sinh viên', 'bình nóng lạnh, wifi, sân phơi rộng rãi', 'Cho thuê phòng trọ tại nhà số 4, ngách 24/133, ngõ 133 Xuân Thủy, Cầu Giấy. Phòng có cửa sổ rộng, tiện nghi đầy đủ, thích hợp với những bạn sinh viện đang học tại ĐHQGHN, ĐHSPHN, Học viện Báo chí,', '2019-04-23 12:10:17'),
-(56, 'thangnm', 'Cho thuê phòng trọ số 11A, Ngách 24, Ngõ 165 Cầu Giấy', 'Phòng trọ', 'Khép kín', 2000000, 20, 'Nhà nước quy định', 'Nhà nước quy định', 'Tất cả', 'Chỗ để xe , Sân phơi , Internet , Bình nóng lạnh', 'phòng đầy đủ tiện nghi', '2019-04-25 21:54:48');
+(56, 'thangnm', 'Cho thuê phòng trọ số 11A, Ngách 24, Ngõ 165 Cầu Giấy', 'Phòng trọ', 'Khép kín', 2000000, 20, 'Nhà nước quy định', 'Nhà nước quy định', 'Tất cả', 'Chỗ để xe , Sân phơi , Internet , Bình nóng lạnh', 'phòng đầy đủ tiện nghi', '2019-04-25 21:54:48'),
+(58, 'admin', 'Cho thuê phòng nhà 32, ngõ 36, Lê Thanh Nghị, Hai Bà Trưng, Hà Nội', 'Phòng trọ', 'Khép kín', 3700000, 25, '3300đ/số', '20.000/số', 'Sinh viên', 'Điều hòa, nóng lạnh, ti vi, tủ lạnh', 'Phòng ngon, giá sinh viên', '2020-11-03 23:17:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hinh_anh_bai_dang`
+-- Cấu trúc bảng cho bảng `hinh_anh_bai_dang`
 --
 
 CREATE TABLE `hinh_anh_bai_dang` (
@@ -179,7 +180,7 @@ CREATE TABLE `hinh_anh_bai_dang` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hinh_anh_phong_tro`
+-- Cấu trúc bảng cho bảng `hinh_anh_phong_tro`
 --
 
 CREATE TABLE `hinh_anh_phong_tro` (
@@ -189,7 +190,7 @@ CREATE TABLE `hinh_anh_phong_tro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `hinh_anh_phong_tro`
+-- Đang đổ dữ liệu cho bảng `hinh_anh_phong_tro`
 --
 
 INSERT INTO `hinh_anh_phong_tro` (`IDimage`, `IDPhongTro`, `DuongDan`) VALUES
@@ -232,12 +233,13 @@ INSERT INTO `hinh_anh_phong_tro` (`IDimage`, `IDPhongTro`, `DuongDan`) VALUES
 (48, 54, 'uploads/53.jpg'),
 (49, 55, 'uploads/37.jpg'),
 (50, 55, 'uploads/38.jpg'),
-(51, 55, 'uploads/41.jpg');
+(51, 55, 'uploads/41.jpg'),
+(54, 58, 'uploads/23a.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -246,7 +248,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`user_name`, `password`) VALUES
@@ -257,6 +259,7 @@ INSERT INTO `user` (`user_name`, `password`) VALUES
 ('hung63', '12345678'),
 ('imanewbie', 'k62ie9uet'),
 ('linhhp', '123456'),
+('manhminno', 'manhnv'),
 ('ndt0123', '123456'),
 ('newaccount', '12345678'),
 ('newmember', 'k62ie9uet'),
@@ -267,108 +270,108 @@ INSERT INTO `user` (`user_name`, `password`) VALUES
 ('thangnm', '123456');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bai_dang`
+-- Chỉ mục cho bảng `bai_dang`
 --
 ALTER TABLE `bai_dang`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `user_name` (`user_name`);
 
 --
--- Indexes for table `dia_chi_phong_tro`
+-- Chỉ mục cho bảng `dia_chi_phong_tro`
 --
 ALTER TABLE `dia_chi_phong_tro`
   ADD PRIMARY KEY (`IDPhongTro`);
 
 --
--- Indexes for table `gia_phong_tro`
+-- Chỉ mục cho bảng `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
   ADD PRIMARY KEY (`IDPhongTro`),
   ADD KEY `user_name` (`user_name`);
 
 --
--- Indexes for table `hinh_anh_bai_dang`
+-- Chỉ mục cho bảng `hinh_anh_bai_dang`
 --
 ALTER TABLE `hinh_anh_bai_dang`
   ADD PRIMARY KEY (`IDimage`),
   ADD KEY `IDBaiDang` (`IDBaiDang`);
 
 --
--- Indexes for table `hinh_anh_phong_tro`
+-- Chỉ mục cho bảng `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
   ADD PRIMARY KEY (`IDimage`),
   ADD KEY `IDPhongTro` (`IDPhongTro`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_name`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bai_dang`
+-- AUTO_INCREMENT cho bảng `bai_dang`
 --
 ALTER TABLE `bai_dang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `dia_chi_phong_tro`
+-- AUTO_INCREMENT cho bảng `dia_chi_phong_tro`
 --
 ALTER TABLE `dia_chi_phong_tro`
-  MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `gia_phong_tro`
+-- AUTO_INCREMENT cho bảng `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
-  MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
--- AUTO_INCREMENT for table `hinh_anh_bai_dang`
+-- AUTO_INCREMENT cho bảng `hinh_anh_bai_dang`
 --
 ALTER TABLE `hinh_anh_bai_dang`
   MODIFY `IDimage` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `hinh_anh_phong_tro`
+-- AUTO_INCREMENT cho bảng `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
-  MODIFY `IDimage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `IDimage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `bai_dang`
+-- Các ràng buộc cho bảng `bai_dang`
 --
 ALTER TABLE `bai_dang`
   ADD CONSTRAINT `bai_dang_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `gia_phong_tro`
+-- Các ràng buộc cho bảng `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
   ADD CONSTRAINT `gia_phong_tro_ibfk_1` FOREIGN KEY (`IDPhongTro`) REFERENCES `dia_chi_phong_tro` (`IDPhongTro`) ON UPDATE CASCADE,
   ADD CONSTRAINT `gia_phong_tro_ibfk_2` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `hinh_anh_bai_dang`
+-- Các ràng buộc cho bảng `hinh_anh_bai_dang`
 --
 ALTER TABLE `hinh_anh_bai_dang`
   ADD CONSTRAINT `hinh_anh_bai_dang_ibfk_1` FOREIGN KEY (`IDBaiDang`) REFERENCES `bai_dang` (`ID`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `hinh_anh_phong_tro`
+-- Các ràng buộc cho bảng `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
   ADD CONSTRAINT `hinh_anh_phong_tro_ibfk_1` FOREIGN KEY (`IDPhongTro`) REFERENCES `dia_chi_phong_tro` (`IDPhongTro`) ON UPDATE CASCADE;

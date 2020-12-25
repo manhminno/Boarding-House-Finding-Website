@@ -1,5 +1,3 @@
-
-
 <?php
 	if(isset($_POST['logIn_user_name']) && isset($_POST['logIn_password'])) {
 		//kết nối đến CSDL

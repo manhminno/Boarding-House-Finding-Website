@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['user_name'])){
-    	header('Location: http://localhost/Tim-Kiem-Nha-Tro/index.php');
+    	header('Location: http://localhost/Project-LTW/DangTinNhanh.php');
     }
 ?>
 
@@ -10,6 +10,7 @@
 <html lang="en">
 <head>
 	<title>Đăng tin nhanh</title>
+	<link rel="icon" type="image/png" href="images/favicon/favicon.png"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <script type="text/javascript" src="vendor/bootstrap.js"></script>

@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 	<title>Tìm kiếm</title>
+	<link rel="icon" type="image/png" href="images/favicon/favicon.png"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="vendor/bootstrap.js"></script>
@@ -237,9 +238,9 @@
 		<div class="row">
 			<div class="col-sm-7">
 				<h3 style="color: #33cc66;">Thông tin liên hệ</h3>
-				<p style="color: white;">Điện thoại: 0123456789
-					<br>Email: trototHN@gmail.com
-					<br>Nhóm 24 - INT2208-8(UET)
+				<p style="color: white;">Điện thoại: 0975253099
+					<br>Email: timkiem_nhatro@gmail.com
+					<br>Nhóm 5 - LTW - IT4552
 				</p>
 			</div>
 			<div class="col-sm-5">

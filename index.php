@@ -3,29 +3,30 @@
 ?>
 
 <!-- Include file xử lý thêm dữ liệu vào csdl khi đăng tin -->
-<?php
+<?php 
 	include('controller/uploadNewRoom.php');
 ?>
 
 <!-- Include file xử lý tác vụ đăng nhập -->
-<?php
+<?php 
 	include('controller/logIn.php');
 ?>
 
 <!-- Include file xử lý tác vụ đăng ký -->
-<?php
+<?php 
 	include('controller/signIn.php');
 ?>
 
 <!-- include file xử lý tác vụ đăng xuất -->
-<?php
+<?php 
 	include('controller/logOut.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Trọ tốt</title>
+	<title>Trọ Hà Nội</title>
+	<link rel="icon" type="image/png" href="images/favicon/favicon.png"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <script type="text/javascript" src="vendor/bootstrap.js"></script>
@@ -35,11 +36,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/CSS.css">
-
+	
 </head>
 <body>
 	<!-- Khung đăng ký, đăng nhập -->
-	<?php
+	<?php 
 		include('module/LogInAndSignIn.php');
 	?>
 
@@ -83,34 +84,24 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- <div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/LoaiPhong.php?action=Ph%C3%B2ng+tr%E1%BB%8D" data-numposts="5" data-width=""></div> -->
 	<!-- Phần chân trang -->
+	<div class="col-sx-12">
+		<center><div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/index.php" data-numposts="5" data-width="1000"></div></center>
+	</div>
 	<?php
 		include('module/footer.php');
 	?>
-
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0" nonce="wDEnKb2Y"></script>
 	<!-- Nhúng file javascript -->
-	<script type="text/javascript" src="scripts/JavaScript.js"></script>
-
+	<script type="text/javascript" src="scripts/JavaScript.js"></script> 
+	<script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=5f39c22020fcaf7ed0e5fea117658a79&data=eyJzc29faWQiOjEwODMxMDQ1LCJoYXNoIjoiOWZjYjc1ODIxYjllOWVlZTlmMDcxMTc5Y2E3NzM1M2YifQ--&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+	
+	<!-- <script lang="javascript">var _vc_data = {id : 10831045, secret : '9fcb75821b9e9eee9f071179ca77353f'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js?id=10831045';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script> -->
 	<?php
 		include('controller/displayLogInBackground.php');
 	?>
 
 </body>
-<footer>
-<div id="googleMap" style="width:100%;height:400px;"></div>
-
-<script>
-    function myMap() {
-        var mapProp = {
-            center:new google.maps.LatLng(51.508742,-0.120850),
-            zoom:5,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUzlN5V2gwWIFgTeuHyhGOZ5axWgFZi-0&callback=myMap"></script>
-
-</footer>
 </html>

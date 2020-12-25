@@ -1,18 +1,3 @@
-<style>
-.button {
-  background-color: green;
-  border: none;
-  color: white;
-  padding: 10px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.button:hover {background-color: #e6ac00;}
-</style>
 <?php
     session_start();
 ?>
@@ -20,6 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php
+
+		include('controller/connectToDatabase.php');
+		$user = $_GET['user_name'];
+		$sql_select_room_delete = ' DELETE FROM gia_phong_tro WHERE user_name= "' .$user. '"' ;
+		$sql_select_room_delete2 = ' DELETE FROM user WHERE user_name= "' .$user. '"';
+		if($result_title = mysqli_query($conn, $sql_select_room_delete) && $result_title2 = mysqli_query($conn, $sql_select_room_delete2)) {
+			echo '<script>alert("Xóa thành công!")</script>';
+		}
+	?>
 	<title id="title_room_page">Trang cá nhân</title>
 	<link rel="icon" type="image/png" href="images/favicon/favicon.png"/>
 	<meta charset="utf-8">
@@ -64,6 +59,7 @@
 		<p id="path">
 			<a href="index.php" class="link">Trang chủ / </a>
 			<a href="TrangCaNhan.php" class="link">Trang cá nhân</a>
+			<a href="showAccount.php" class="link">Các tài khoản</a>
 		</p>
 	</div>
 
@@ -73,27 +69,26 @@
 			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12" style="padding: 0px;">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-7" style="font-size: 23px; margin: 10px 0px; color: #9a9999;">
 					<?php
-						$name = $_SESSION['user_name'];
-						if($name == "admin"){
-							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí trang web:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
-							echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Bạn đang đăng nhập với tư cách là quản trị viên</span>';
-						}
-						else{
-							echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí tài khoản<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
-							echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Tài khoản: '.$name.'</span>';
+					echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí tài khoản:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
+					echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Bạn đang đăng nhập với tư cách là quản trị viên</span>';
+						if(isset($_SESSION['user_name'])) {
+							echo '<span style="color:black;text-align:center;">Tài khoản: '.$_SESSION['user_name'].'</span>';
 						}
 					?>
 				</div>
 			</div>
-			<div class="col-lg-12">
-				<a href="showRoom.php"><button class="button">Bài đăng</button></button></a>
-				<?php
-				if($name == "admin"){
-				?>
-					<a href="showAccount.php"><button class="button">Các tài khoản</button></button></a>
-				<?php
-				}
-				?>
+			<!-- Phần hiển thị các tin bài -->
+			<div class="col-xs-12" id="room_main_content">
+				<div class="row" id="new_rooms">
+					
+					<!-- Hiển thị các phòng trọ -->
+					<?php
+						include('module/account.php');
+					?>
+					
+				</div>
+			</div>
+
 			</div>
 		</div>
 	</div>
