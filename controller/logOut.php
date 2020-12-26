@@ -1,6 +1,6 @@
 <?php 
 	if(isset($_GET['action'])) {
 		session_unset();
-		header('Location: http://localhost/Project-LTW/index.php');
+		header('Location: https://it4552-group5-trohn.000webhostapp.com/index.php');
 	}
 ?>
