@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th12 14, 2020 lúc 03:28 PM
--- Phiên bản máy phục vụ: 10.3.18-MariaDB
--- Phiên bản PHP: 7.3.23
+-- Host: localhost:3306
+-- Generation Time: Dec 26, 2020 at 04:45 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `id15645235_nha_tro_db`
+-- Database: `id15771106_nha_tro_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `dia_chi_phong_tro`
+-- Table structure for table `dia_chi_phong_tro`
 --
 
 CREATE TABLE `dia_chi_phong_tro` (
@@ -38,7 +38,7 @@ CREATE TABLE `dia_chi_phong_tro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `dia_chi_phong_tro`
+-- Dumping data for table `dia_chi_phong_tro`
 --
 
 INSERT INTO `dia_chi_phong_tro` (`IDPhongTro`, `DiaChi`, `XaPhuong`, `QuanHuyen`, `TenChuTro`, `Sdt`) VALUES
@@ -77,7 +77,7 @@ INSERT INTO `dia_chi_phong_tro` (`IDPhongTro`, `DiaChi`, `XaPhuong`, `QuanHuyen`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `gia_phong_tro`
+-- Table structure for table `gia_phong_tro`
 --
 
 CREATE TABLE `gia_phong_tro` (
@@ -97,7 +97,7 @@ CREATE TABLE `gia_phong_tro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `gia_phong_tro`
+-- Dumping data for table `gia_phong_tro`
 --
 
 INSERT INTO `gia_phong_tro` (`IDPhongTro`, `user_name`, `TieuDe`, `KieuPhong`, `KieuVeSinh`, `GiaChoThue`, `DienTich`, `GiaDien`, `GiaNuoc`, `DoiTuong`, `TienIch`, `MoTa`, `ThoiGianDang`) VALUES
@@ -132,7 +132,7 @@ INSERT INTO `gia_phong_tro` (`IDPhongTro`, `user_name`, `TieuDe`, `KieuPhong`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hinh_anh_phong_tro`
+-- Table structure for table `hinh_anh_phong_tro`
 --
 
 CREATE TABLE `hinh_anh_phong_tro` (
@@ -142,7 +142,7 @@ CREATE TABLE `hinh_anh_phong_tro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hinh_anh_phong_tro`
+-- Dumping data for table `hinh_anh_phong_tro`
 --
 
 INSERT INTO `hinh_anh_phong_tro` (`IDimage`, `IDPhongTro`, `DuongDan`) VALUES
@@ -237,7 +237,7 @@ INSERT INTO `hinh_anh_phong_tro` (`IDimage`, `IDPhongTro`, `DuongDan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -246,7 +246,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_name`, `password`) VALUES
@@ -260,70 +260,70 @@ INSERT INTO `user` (`user_name`, `password`) VALUES
 ('manhtest', 'manhnv');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `dia_chi_phong_tro`
+-- Indexes for table `dia_chi_phong_tro`
 --
 ALTER TABLE `dia_chi_phong_tro`
   ADD PRIMARY KEY (`IDPhongTro`);
 
 --
--- Chỉ mục cho bảng `gia_phong_tro`
+-- Indexes for table `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
   ADD PRIMARY KEY (`IDPhongTro`),
   ADD KEY `user_name` (`user_name`);
 
 --
--- Chỉ mục cho bảng `hinh_anh_phong_tro`
+-- Indexes for table `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
   ADD PRIMARY KEY (`IDimage`),
   ADD KEY `IDPhongTro` (`IDPhongTro`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_name`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `dia_chi_phong_tro`
+-- AUTO_INCREMENT for table `dia_chi_phong_tro`
 --
 ALTER TABLE `dia_chi_phong_tro`
   MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
--- AUTO_INCREMENT cho bảng `gia_phong_tro`
+-- AUTO_INCREMENT for table `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
   MODIFY `IDPhongTro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
--- AUTO_INCREMENT cho bảng `hinh_anh_phong_tro`
+-- AUTO_INCREMENT for table `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
   MODIFY `IDimage` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `gia_phong_tro`
+-- Constraints for table `gia_phong_tro`
 --
 ALTER TABLE `gia_phong_tro`
   ADD CONSTRAINT `gia_phong_tro_ibfk_1` FOREIGN KEY (`IDPhongTro`) REFERENCES `dia_chi_phong_tro` (`IDPhongTro`) ON UPDATE CASCADE,
   ADD CONSTRAINT `gia_phong_tro_ibfk_2` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`) ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `hinh_anh_phong_tro`
+-- Constraints for table `hinh_anh_phong_tro`
 --
 ALTER TABLE `hinh_anh_phong_tro`
   ADD CONSTRAINT `hinh_anh_phong_tro_ibfk_1` FOREIGN KEY (`IDPhongTro`) REFERENCES `dia_chi_phong_tro` (`IDPhongTro`) ON UPDATE CASCADE;
