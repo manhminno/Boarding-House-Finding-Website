@@ -30,7 +30,7 @@
 					        function checkLogIn(){
 					            <?php 
 					            	if(isset($_SESSION['user_name'])) { ?>
-					            		location.assign("http://localhost/Tim-Kiem-Nha-Tro/DangTinNhanh.php");
+					            		location.assign("https://it4552-group5-trohn.000webhostapp.com/DangTinNhanh.php");
 					          <?php } else { ?>
 					          			$("#login_background").css("display", "block");
 										$("#logIn_area").css("display", "block");
