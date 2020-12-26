@@ -87,7 +87,7 @@
 	<!-- <div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/LoaiPhong.php?action=Ph%C3%B2ng+tr%E1%BB%8D" data-numposts="5" data-width=""></div> -->
 	<!-- Phần chân trang -->
 	<div class="col-sx-12">
-		<center><div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/index.php" data-numposts="5" data-width="1000"></div></center>
+		<center><div class="fb-comments" data-href="https://it4552-group5-trohn.000webhostapp.com/index.php" data-numposts="5" data-width="1000"></div></center>
 	</div>
 	<?php
 		include('module/footer.php');
