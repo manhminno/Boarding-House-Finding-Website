@@ -37,7 +37,18 @@
 					<div class="col-xs-12">
 					<h3 style="color: #33cc66">Chọn khu vực</h3>
 					<select class="filter_option select_tags" id="district_select" onchange="setUpXaPhuongFilter(this)" name="quanHuyen">
-						<option value="">Chọn quận, huyện</option>
+                        <option value="<?php
+                        if(!empty($_GET['quanHuyen']) && isset($_GET['quanHuyen'])) {
+                            echo $_GET['quanHuyen'];
+                        } else echo "";
+                        ?>" disabled selected>
+                        <?php
+                            if(!empty($_GET['quanHuyen']) && isset($_GET['quanHuyen'])) {
+                                echo $_GET['quanHuyen'];
+                            } else echo "Chọn quận, huyện";
+                        ?>
+                        </option>
+                        <option value="">Chọn quận, huyện</option>
 						<option value="Quận Ba Đình">Quận Ba Đình</option>
 						<option value="Huyện Ba Vì">Huyện Ba Vì</option>
 						<option value="Quận Bắc Từ Liêm">Quận Bắc Từ Liêm</option>
@@ -64,49 +75,68 @@
 						<option value="Quận Tây Hồ">Quận Tây Hồ</option>
 						<option value="Huyện Thạch Thất">Huyện Thạch Thất</option>
 						<option value="Huyện Thanh Oai">Huyện Thanh Oai</option>
-						<option value="Huyện Thanh Trì">Huyện Thanh Trì</option>
+						<option value=">Huyện Thanh Trì">Huyện Thanh Trì</option>
 						<option value="Quận Thanh Xuân">Quận Thanh Xuân</option>
-						<option value="Huyện Thường Tín">Huyện Thường Tín</option>
-						<option value="Huyện Ứng Hòa">Huyện Ứng Hòa</option>
+						<option value="Huyện Ứng Hòa">Huyện Thường Tín</option>
+						<option value="Huyện Ứng Hòa"></option>
 
 					</select>
 					<select class="filter_option select_tags" id="xaPhuongSelect" name="xaPhuong">
-						<option class="select_filter" value="">Chọn xã, phường</option>
+                        <option class="select_filter" value="<?php
+                        if(!empty($_GET['xaPhuong']) && isset($_GET['xaPhuong'])) {
+                            echo $_GET['xaPhuong'];
+                        } else echo  "";
+                        ?>" disabled selected><?php
+                            if(!empty($_GET['xaPhuong']) && isset($_GET['xaPhuong'])) {
+                                echo $_GET['xaPhuong'];
+                            } else echo  "Chọn xã, phường";
+                            ?></option>
+<!--						<option class="select_filter" value="">Chọn xã, phường</option>-->
 					</select>
 				</div>
 				<div class="col-xs-12">
 					<h3 style="color: #33cc66">Chọn loại phòng</h3>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input name="kieuPhong" type="radio" value="Phòng trọ" /> Phòng trọ
+						<input name="kieuPhong" type="radio" value="Phòng trọ" <?php
+                        if (!empty($_GET['kieuPhong'])){
+                            if ( $_GET['kieuPhong'] == "Phòng trọ") {echo "checked";}
+                        }
+                        ?> /> Phòng trọ
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input name="kieuPhong" type="radio" value="Nhà nguyên căn" /> Nhà nguyên căn
+						<input name="kieuPhong" type="radio" value="Nhà nguyên căn" <?php if (!empty($_GET['kieuPhong']) && $_GET['kieuPhong'] == "Nhà nguyên căn" ){echo "checked";}?> /> Nhà nguyên căn
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input  name="kieuPhong" type="radio" value="Ở ghép"> Ở ghép
+						<input  name="kieuPhong" type="radio" value="Ở ghép" <?php if (!empty($_GET['kieuPhong']) && $_GET['kieuPhong'] == "Ở ghép" ){echo "checked";}?>> Ở ghép
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input  name="kieuPhong" type="radio" value="Tất cả"> Tất cả
+						<input  name="kieuPhong" type="radio" value="Tất cả" <?php if (!empty($_GET['kieuPhong']) && $_GET['kieuPhong'] == "Tất cả" ){echo "checked";}?> > Tất cả
 					</div>
 				</div>
 				<div class="col-xs-12">
 					<h3 style="color: #33cc66">Chọn khoảng giá</h3>
 					<div class="row col-lg-12" style="margin: 0px; padding: 0px;">
-						<input class="col-lg-4 col-md-4 col-sm-4 col-xs-4 price_filter" type="number" min="0" value="" id="price_from" name="price_from">
+						<input class="col-lg-4 col-md-4 col-sm-4 col-xs-4 price_filter" type="number" min="0" value="<?php
+                        if(isset($_GET['price_from']) && isset($_GET['price_to'])) {
+                            echo $_GET['price_from'];
+                        }  ?>" id="price_from" name="price_from">
 						<p class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">Đến</p>
-						<input class="col-lg-4 col-md-4 col-sm-4 col-xs-4 price_filter" type="number" min="0" value="" id="price_to" name="price_to">
+						<input class="col-lg-4 col-md-4 col-sm-4 col-xs-4 price_filter" type="number" min="0" value="<?php
+                        if(isset($_GET['price_from']) && isset($_GET['price_to'])) {
+                            echo $_GET['price_to'];
+                        }  ?>" id="price_to" name="price_to">
 					</div>
 				</div>
 				<div class="col-xs-12">
 					<h3 style="color: #33cc66">Chọn kiểu vệ sinh</h3>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input name="kieuVeSinh" type="radio" value="Khép kín" /> Khép kín
+						<input name="kieuVeSinh" type="radio" value="Khép kín" <?php if (!empty($_GET['kieuVeSinh']) && $_GET['kieuVeSinh'] == "Khép kín" ){echo "checked";}?>/> Khép kín
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input name="kieuVeSinh" type="radio" value="Không khép kín" /> Không khép kín
+						<input name="kieuVeSinh" type="radio" value="Không khép kín" <?php if (!empty($_GET['kieuVeSinh']) && $_GET['kieuVeSinh'] == "Không khép kín" ){echo "checked";}?>/> Không khép kín
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding: 5px 0px;">
-						<input  name="kieuVeSinh" type="radio" value="Tất cả"> Tất cả
+						<input  name="kieuVeSinh" type="radio" value="Tất cả" <?php if (!empty($_GET['kieuVeSinh']) && $_GET['kieuVeSinh'] == "Tất cả" ){echo "checked";}?>> Tất cả
 					</div>
 				</div>
 				<div class="col-xs-12 filter_option" style="width: 100%; text-align: center;">
