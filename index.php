@@ -84,15 +84,21 @@
 			</div>
 		</div>
 	</div>
-
+	<!-- <div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/LoaiPhong.php?action=Ph%C3%B2ng+tr%E1%BB%8D" data-numposts="5" data-width=""></div> -->
 	<!-- Phần chân trang -->
+	<div class="col-sx-12">
+		<center><div class="fb-comments" data-href="http://minnodeploy.000webhostapp.com/index.php" data-numposts="5" data-width="1000"></div></center>
+	</div>
 	<?php
 		include('module/footer.php');
 	?>
-
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v9.0" nonce="wDEnKb2Y"></script>
 	<!-- Nhúng file javascript -->
 	<script type="text/javascript" src="scripts/JavaScript.js"></script> 
-
+	<script lang="javascript">(function() {var pname = ( (document.title !='')? document.title : ((document.querySelector('h1') != null)? document.querySelector('h1').innerHTML : '') );var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async=1; ga.src = '//live.vnpgroup.net/js/web_client_box.php?hash=5f39c22020fcaf7ed0e5fea117658a79&data=eyJzc29faWQiOjEwODMxMDQ1LCJoYXNoIjoiOWZjYjc1ODIxYjllOWVlZTlmMDcxMTc5Y2E3NzM1M2YifQ--&pname='+pname;var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script>
+	
+	<!-- <script lang="javascript">var _vc_data = {id : 10831045, secret : '9fcb75821b9e9eee9f071179ca77353f'};(function() {var ga = document.createElement('script');ga.type = 'text/javascript';ga.async=true; ga.defer=true;ga.src = '//live.vnpgroup.net/client/tracking.js?id=10831045';var s = document.getElementsByTagName('script');s[0].parentNode.insertBefore(ga, s[0]);})();</script> -->
 	<?php
 		include('controller/displayLogInBackground.php');
 	?>

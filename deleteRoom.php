@@ -10,7 +10,9 @@
 		include('controller/connectToDatabase.php');
 		$room_id = $_GET['id'];
 		$sql_select_room_delete = 'DELETE FROM gia_phong_tro WHERE IDPhongTro=' .$room_id;
-		if($result_title = mysqli_query($conn, $sql_select_room_delete)) {
+		$sql_select_room_delete2 = 'DELETE FROM hinh_anh_phong_tro WHERE IDPhongTro=' .$room_id;
+		$sql_select_room_delete3 = 'DELETE FROM dia_chi_phong_tro WHERE IDPhongTro=' .$room_id;
+		if($result_title = mysqli_query($conn, $sql_select_room_delete) && $result_title2 = mysqli_query($conn, $sql_select_room_delete2) && $result_title3 = mysqli_query($conn, $sql_select_room_delete3)) {
 			echo '<script>alert("Xóa thành công!")</script>';
 		}
 	?>
