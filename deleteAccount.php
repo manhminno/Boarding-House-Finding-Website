@@ -71,9 +71,6 @@
 					<?php
 					echo '<div style="font-size:1.25em;color:black;font-weight:bold;">Quản lí tài khoản:<span style="font-size:1.25em;color:#0e3c68;font-weight:bold;"></span></div>';
 					echo '<span style="font-style: italic;color:black;text-align:center;font-size:0.70em">Bạn đang đăng nhập với tư cách là quản trị viên</span>';
-						if(isset($_SESSION['user_name'])) {
-							echo '<span style="color:black;text-align:center;">Tài khoản: '.$_SESSION['user_name'].'</span>';
-						}
 					?>
 				</div>
 			</div>

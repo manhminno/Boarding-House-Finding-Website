@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['user_name'])){
-    	header('Location: http://localhost/Project-LTW/DangTinNhanh.php');
+    	header('Location: https://it4552-group5-trohn.000webhostapp.com/DangTinNhanh.php');
     }
 ?>
 
