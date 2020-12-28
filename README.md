@@ -71,10 +71,10 @@ $conn = mysqli_connect("localhost", "root", "", "id15771106_nha_tro_db");
   <a href="https://github.com/manhminno/Tim-Kiem-Nha-Tro/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=manhminno/Tim-Kiem-Nha-Tro" />
   </a>
-    <strong><a href="http://it4552-group5-trohn.000webhostapp.com/">NV.Manh</a></strong> 
-    <strong><a href="https://github.com/manhminno/Tim-Kiem-Nha-Tro/issues">LN.Huy</a></strong>&nbsp;&nbsp;
-    <strong><a href="https://github.com/manhminno/Tim-Kiem-Nha-Tro/issues">BA.Tu</a></strong>&nbsp;&nbsp;
-    <strong><a href="https://github.com/manhminno/Tim-Kiem-Nha-Tro/issues">NA.Dung</a></strong>
+    <strong><a href="https://github.com/manhminno">NV.Manh</a></strong> 
+    <strong><a href="https://github.com/20176787">LN.Huy</a></strong>
+    <strong><a href="https://github.com/anhdunyb99">NA.Dung</a></strong>
+    <strong><a href="https://github.com/blackman2xxx">BA.Tu</a></strong>
 </p>
 <a name="licence"/>
 
